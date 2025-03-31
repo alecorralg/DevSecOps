@@ -10,15 +10,18 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-          - name: 'Hello world'
-            run: echo "Hola mundo desde Github Actions"
-          - name: 'dime la fecha'
-            run: date
-          - name: dime la fecha en español
-            run: date +"%A %d de %B de %Y"
+          - uses: actions/checkout@v4
+          - uses: actions/setup-node@v3
+            with:
+              node-version: 18.x
+              cache: 'npm'   
           - name: dime la fecha en español con hora
             run: date +"%A %d de %B de %Y %H:%M:%S"
           - name: Muestra el contenido del directorio
             run: ls -la    
+
+          - run: npm ci --legacy-peer-deps #Instalar dependencias que no se instalan por defecto
+          - run: npm run build #Compilar el proyecto
+          - run: npm test #Ejecutar pruebas unitarias
 
     
