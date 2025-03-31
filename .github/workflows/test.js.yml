@@ -1,0 +1,24 @@
+
+name: Pruebas CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+    prueba: 
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: 'Hello world'
+            run: echo "Hola mundo desde Github Actions"
+          - name: 'dime la fecha'
+            run: date
+          - name: dime la fecha en español
+            run: date +"%A %d de %B de %Y"
+          - name: dime la fecha en español con hora
+            run: date +"%A %d de %B de %Y %H:%M:%S"
+          - name: Muestra el contenido del directorio
+            run: ls -la    
+
+    
