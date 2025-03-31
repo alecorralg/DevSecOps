@@ -10,8 +10,8 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-          - uses: actions/checkout@v4
-          - uses: actions/setup-node@v3
+          - uses: actions/checkout@v4 #Extension - Checkout the repository https://github.com/marketplace/actions/checkout
+          - uses: actions/setup-node@v3 #Extension - Setup Node.js https://github.com/marketplace/actions/setup-node-js-environment
             with:
               node-version: 18.x
               cache: 'npm'   
